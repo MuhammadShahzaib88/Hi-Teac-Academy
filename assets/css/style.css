@@ -1,0 +1,253 @@
+/* assets/css/style.css */
+/* Custom Styles for Hi Teac Academy Management System */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --primary-color: #0d6efd;
+    --primary-hover: #0b5ed7;
+    --dark-accent: #0f2027;
+    --navy-blue: #0b3c5d;
+    --light-blue: #328cc1;
+    --bg-light: #f8f9fa;
+    --text-dark: #212529;
+    --text-muted: #6c757d;
+    --transition-speed: 0.3s;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-dark);
+    background-color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--light-blue);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--navy-blue);
+}
+
+/* Animations */
+.hover-lift {
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1rem 3rem rgba(0,0,0,0.12) !important;
+}
+
+/* Header & Navbar */
+.navbar {
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--navy-blue) !important;
+}
+.navbar-brand span {
+    color: var(--primary-color);
+}
+.nav-link {
+    font-weight: 500;
+    color: var(--text-dark) !important;
+    transition: color 0.2s ease;
+}
+.nav-link:hover, .nav-link.active {
+    color: var(--primary-color) !important;
+}
+
+/* Hero Section */
+.hero-banner {
+    position: relative;
+    background: linear-gradient(135deg, var(--dark-accent) 0%, var(--navy-blue) 50%, var(--light-blue) 100%);
+    color: #ffffff;
+    padding: 100px 0;
+    overflow: hidden;
+}
+.hero-banner::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: #ffffff;
+    clip-path: polygon(0 100%, 100% 100%, 100% 0);
+}
+
+/* Course Cards */
+.course-card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+.course-header {
+    background: linear-gradient(45deg, var(--navy-blue), var(--light-blue));
+    color: #fff;
+    padding: 20px;
+}
+
+/* Gallery styling */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+.gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(15, 32, 39, 0.85);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+}
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+/* Dashboard Sidebar Styling */
+.dashboard-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+.sidebar {
+    width: 260px;
+    background: linear-gradient(180deg, var(--dark-accent) 0%, var(--navy-blue) 100%);
+    color: #fff;
+    transition: all 0.3s;
+    flex-shrink: 0;
+}
+.sidebar-header {
+    padding: 20px;
+    background: rgba(0,0,0,0.2);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.sidebar-menu {
+    padding: 20px 0;
+    list-style: none;
+    margin: 0;
+}
+.sidebar-menu li a {
+    display: flex;
+    align-items: center;
+    padding: 12px 25px;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s;
+    border-left: 4px solid transparent;
+}
+.sidebar-menu li a i {
+    width: 25px;
+    font-size: 1.1rem;
+}
+.sidebar-menu li a:hover, .sidebar-menu li.active a {
+    color: #fff;
+    background: rgba(255,255,255,0.08);
+    border-left-color: var(--primary-color);
+}
+.dashboard-content {
+    flex-grow: 1;
+    background-color: #f4f7f6;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+/* Stats Cards */
+.stat-card {
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+.stat-card-primary { background: linear-gradient(45deg, #0d6efd, #0b5ed7); }
+.stat-card-success { background: linear-gradient(45deg, #198754, #157347); }
+.stat-card-warning { background: linear-gradient(45deg, #ffc107, #ffb300); color: #212529 !important; }
+.stat-card-info { background: linear-gradient(45deg, #0dcaf0, #0bacce); }
+.stat-card-danger { background: linear-gradient(45deg, #dc3545, #bb2d3b); }
+
+/* Admission Status Badge */
+.badge-pending { background-color: #ffc107; color: #212529; }
+.badge-approved { background-color: #198754; color: #fff; }
+.badge-rejected { background-color: #dc3545; color: #fff; }
+
+/* Custom Toasts */
+#toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1060;
+}
+
+/* Footer Styling */
+footer {
+    background-color: var(--dark-accent);
+    color: rgba(255,255,255,0.7);
+    padding: 60px 0 20px;
+}
+footer a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+footer a:hover {
+    color: #ffffff;
+}
+
+/* Print Styling for Admission Slips */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    .print-area, .print-area * {
+        visibility: visible;
+    }
+    .print-area {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        color: #000;
+        background: #fff;
+        padding: 20px;
+        box-shadow: none;
+    }
+    .no-print {
+        display: none !important;
+    }
+}
