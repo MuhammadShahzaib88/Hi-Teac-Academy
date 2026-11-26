@@ -7,6 +7,7 @@ require_once dirname(__DIR__) . '/includes/admin_header.php';
 
 // 1. Fetch count statistics
 $total_students = $pdo->query("SELECT COUNT(*) FROM students")->fetchColumn();
+$total_teachers = $pdo->query("SELECT COUNT(*) FROM teachers")->fetchColumn();
 $total_courses = $pdo->query("SELECT COUNT(*) FROM courses")->fetchColumn();
 $total_admissions = $pdo->query("SELECT COUNT(*) FROM admissions")->fetchColumn();
 $pending_admissions = $pdo->query("SELECT COUNT(*) FROM admissions WHERE status = 'Pending'")->fetchColumn();
@@ -39,38 +40,44 @@ $cit_count = $pdo->query("SELECT COUNT(*) FROM admissions WHERE course_id = 2")-
 ?>
 
 <!-- Statistics Counter Grid -->
-<div class="row g-3 mb-4">
-    <div class="col-6 col-lg-2">
+<div class="row row-cols-2 row-cols-md-3 row-cols-xl-4 g-3 mb-4">
+    <div class="col">
         <div class="stat-card stat-card-primary text-center">
             <h3 class="fw-bold mb-1"><?php echo $total_students; ?></h3>
             <span class="small text-uppercase">Total Students</span>
         </div>
     </div>
-    <div class="col-6 col-lg-2">
+    <div class="col">
+        <div class="stat-card stat-card-info text-center">
+            <h3 class="fw-bold mb-1"><?php echo $total_teachers; ?></h3>
+            <span class="small text-uppercase">Total Teachers</span>
+        </div>
+    </div>
+    <div class="col">
         <div class="stat-card stat-card-info text-center">
             <h3 class="fw-bold mb-1"><?php echo $total_courses; ?></h3>
             <span class="small text-uppercase">Total Courses</span>
         </div>
     </div>
-    <div class="col-6 col-lg-2">
+    <div class="col">
         <div class="stat-card stat-card-success text-center">
             <h3 class="fw-bold mb-1"><?php echo $total_admissions; ?></h3>
             <span class="small text-uppercase">Admissions</span>
         </div>
     </div>
-    <div class="col-6 col-lg-2">
+    <div class="col">
         <div class="stat-card stat-card-warning text-center">
             <h3 class="fw-bold mb-1"><?php echo $pending_admissions; ?></h3>
             <span class="small text-uppercase">Pending Adm.</span>
         </div>
     </div>
-    <div class="col-6 col-lg-2">
+    <div class="col">
         <div class="stat-card stat-card-danger text-center">
             <h3 class="fw-bold mb-1"><?php echo $total_questions; ?></h3>
             <span class="small text-uppercase">Questions</span>
         </div>
     </div>
-    <div class="col-6 col-lg-2">
+    <div class="col">
         <div class="stat-card stat-card-success text-center">
             <h3 class="fw-bold mb-1"><?php echo $answered_questions; ?></h3>
             <span class="small text-uppercase">Answered Qs</span>
